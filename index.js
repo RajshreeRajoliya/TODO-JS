@@ -25,10 +25,19 @@ function displayData(data){
 
        var btn2 = document.createElement("button");
        btn2.innerText = "Delete";
+       btn2.addEventListener("click" , (index)=>{deleteTask(index)})
        
        tr.append(td , btn1 , btn2);
        document.querySelector("#TodoTask").append(tr);
     })
 }
+
+function deleteTask(index){
+arr.splice(index,1);
+localStorage.setItem("todos" , JSON.stringify(arr));
+displayData(arr);
+}
+
+
 
 displayData(arr)
